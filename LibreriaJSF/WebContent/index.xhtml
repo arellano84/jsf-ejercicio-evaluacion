@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+      <h:head>
+      	<title>#{msg.pag_titulo}</title>
+      </h:head>
+      
+      <h:body>
+      
+      <br/><br/>
+      
+      <f:view locale="#{idiomaBean.locale}"> 
+      
+      	<h:form id="formulario">
+      			<br />
+				#{msg.pag_bienvenida}
+				<br /><br />
+      			<h:commandLink action="altaLibro" value="#{msg.menu_alta}" /><br/><br/>
+      			<h:commandLink action="consultarTodos" value="#{msg.menu_consulta}" /><br/><br/>
+      			<h:commandLink action="buscarLibro" value="#{msg.menu_buscar}" /><br/><br/>
+      	</h:form>
+      	
+      	</f:view>
+      </h:body>
+
+</html>

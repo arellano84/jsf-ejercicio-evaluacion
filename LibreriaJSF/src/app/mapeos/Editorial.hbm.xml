@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-mar-2015 0:20:35 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="app.modelo.Editorial" table="EDITORIAL">
+        <id name="id" type="java.lang.Long">
+            <column name="ID_EDITORIAL" />
+            <generator class="native" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+<!--         <many-to-one name="direccion" class="app.modelo.Direccion" fetch="join"> -->
+<!--             <column name="DIRECCION_ID" /> -->
+<!--         </many-to-one> -->
+      	<many-to-one unique="true" name="direccion" column="DIRECCION_ID" not-null="true"
+                   cascade="all"/>
+                   
+        <property name="nif" type="java.lang.String">
+            <column name="NIF" />
+        </property>
+        
+        <set name="libros" cascade="all" inverse="true">
+            <key column="EDITORIAL_ID"/>
+            <one-to-many class="app.modelo.Libro"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-mar-2015 0:20:35 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="app.modelo.Libro" table="LIBRO">
+        <id name="id" type="java.lang.Long">
+            <column name="ID_LIBRO" />
+            <generator class="native" />
+        </id>
+        <property name="titulo" type="java.lang.String">
+            <column name="TITULO" />
+        </property>
+        <property name="isbn" type="java.lang.String">
+            <column name="ISBN" />
+        </property>
+        <property name="publicacion" type="int">
+            <column name="PUBLICACION" />
+        </property>
+        <property name="precio" type="double">
+            <column name="PRECIO" />
+        </property>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION" />
+        </property>
+        
+        <many-to-one name="editoriales" class="app.modelo.Editorial"
+                     column="EDITORIAL_ID"
+                     not-null="false"/>
+                     
+        <set name="autores" table="autores_libros"
+                    cascade="all">
+            <key column="ID_LIBRO"/>
+            <many-to-many column="ID_AUTOR"
+                          class="app.modelo.Autor"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

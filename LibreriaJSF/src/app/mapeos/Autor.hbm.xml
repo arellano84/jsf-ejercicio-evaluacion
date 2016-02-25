@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 09-mar-2015 0:20:35 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="app.modelo.Autor" table="AUTOR">
+        <id name="id" type="java.lang.Long">
+            <column name="ID_AUTOR" />
+            <generator class="native" />
+        </id>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        <property name="nacionalidad" type="java.lang.String">
+            <column name="NACIONALIDAD" />
+        </property>
+        <property name="comentarios" type="java.lang.String">
+            <column name="COMENTARIOS" />
+        </property>
+        
+        <set name="libros" inverse="true" table="autores_libros"
+                 cascade="all">
+            <key column="ID_AUTOR"/>
+            <many-to-many column="ID_LIBRO"
+                          class="app.modelo.Libro"/>
+        </set>
+        
+    </class>
+</hibernate-mapping>

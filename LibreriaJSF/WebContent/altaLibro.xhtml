@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	
+<h:head>
+	<title>#{msg.pag_alta}</title>
+</h:head>
+
+<h:body>
+
+	<f:view locale="#{idiomaBean.locale}">
+		<h:form id="formulario_alta">
+			<br />
+			#{msg.pag_alta}
+			<br /><br />
+			<h:panelGrid columns="3">
+				<h:outputLabel value="#{msg.label_datos_autor}"/>
+				<h:column></h:column>
+				<h:column></h:column>
+				<h:outputLabel value="#{msg.label_nom_autor}"/>
+				<h:inputText id="nom_autor" value="#{libreriaBean.nom_autor}"  required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="nom_autor" />
+				<h:outputLabel value="#{msg.label_nacionalidad}" />
+				<h:inputText id="nacionalidad" value="#{libreriaBean.nacionalidad}"  required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="nacionalidad" />
+				<h:outputLabel value="#{msg.label_comentarios}" />
+				<h:inputText id="comentarios" value="#{libreriaBean.comentarios}">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="comentarios" />
+				<h:outputLabel value="#{msg.label_datos_libro}"/>
+				<h:column></h:column>
+				<h:column></h:column>
+				<h:outputLabel value="#{msg.label_titulo}" />
+				<h:inputText id="titulo" value="#{libreriaBean.titulo}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="titulo" />
+				<h:outputLabel value="#{msg.label_isbn}" />
+				<h:inputText id="isbn" value="#{libreriaBean.isbn}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="isbn" />
+				<h:outputLabel value="#{msg.label_publicacion}" />
+				<h:inputText id="publicacion" value="#{libreriaBean.publicacion}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="publicacion" />
+				<h:outputLabel value="#{msg.label_precio}" />
+				<h:inputText id="precio" value="#{libreriaBean.precio}" required="true">
+					<f:validateDoubleRange minimum="0" maximum="999.99"/>
+				</h:inputText>
+				<h:message for="precio" />
+				<h:outputLabel value="#{msg.label_descripcion}" />
+				<h:inputText id="descripcion" value="#{libreriaBean.descripcion}">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="descripcion" />
+				<h:outputLabel value="#{msg.label_datos_editorial}"/>
+				<h:column></h:column>
+				<h:column></h:column>
+				<h:outputLabel value="#{msg.label_nom_editorial}" />
+				<h:inputText id="nom_editorial" value="#{libreriaBean.nom_editorial}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="nom_editorial" />
+				<h:outputLabel value="#{msg.label_nif}" />
+				<h:inputText id="nif" value="#{libreriaBean.nif}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="nif" />
+				<h:outputLabel value="#{msg.label_datos_direccion}"/>
+				<h:column></h:column>
+				<h:column></h:column>
+				<h:outputLabel value="#{msg.label_calle}" />
+				<h:inputText id="calle" value="#{libreriaBean.calle}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="calle" />
+				<h:outputLabel value="#{msg.label_numero}" />
+				<h:inputText id="numero" value="#{libreriaBean.numero}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="numero" />
+				<h:outputLabel value="#{msg.label_poblacion}" />
+				<h:inputText id="poblacion" value="#{libreriaBean.poblacion}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="poblacion" />
+				<h:outputLabel value="#{msg.label_cp}" />
+				<h:inputText id="cp" value="#{libreriaBean.cp}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="cp" />
+				<h:outputLabel value="#{msg.label_provincia}" />
+				<h:inputText id="provincia" value="#{libreriaBean.provincia}" required="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="provincia" />
+			</h:panelGrid>
+			<br /><br />
+			
+			<h:commandButton action="#{libreriaBean.alta()}"
+				value="#{msg.boton_alta}"/>
+			&nbsp;&nbsp;&nbsp;
+			<h:link value="#{msg.boton_volver}" outcome="index" />
+			
+		</h:form>
+
+	</f:view>
+</h:body>
+
+
+</html>

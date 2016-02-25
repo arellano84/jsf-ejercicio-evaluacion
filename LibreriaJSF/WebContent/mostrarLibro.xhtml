@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>#{msg.pag_buscar}</title>
+</h:head>
+
+<h:body>
+
+	<f:view locale="#{idiomaBean.locale}">
+		<h:form id="formulario_consulta">
+			<br />
+			#{msg.pag_buscar}
+			<br /><br />
+			<h:panelGrid columns="3">
+				<h:outputLabel value="#{msg.label_titulo}"/>
+				<h:inputText id="titulo" value="#{libreriaBean.libro.titulo}" readonly="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="titulo" />
+				<h:outputLabel value="#{msg.label_isbn}" />
+				<h:inputText id="isbn" value="#{libreriaBean.libro.isbn}" required="true" readonly="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="isbn" />
+				<h:outputLabel value="#{msg.label_publicacion}" />
+				<h:inputText id="publicacion" value="#{libreriaBean.libro.publicacion}" readonly="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="publicacion" />
+				<h:outputLabel value="#{msg.label_precio}" />
+				<h:inputText id="precio" value="#{libreriaBean.libro.precio}" required="true">
+					<f:validateDoubleRange minimum="0" maximum="999.99"/>
+				</h:inputText>
+				<h:message for="precio" />
+				<h:outputLabel value="#{msg.label_descripcion}" />
+				<h:inputText id="descripcion" value="#{libreriaBean.libro.descripcion}" readonly="true">
+					<f:validateLength minimum="1" maximum="100" />
+				</h:inputText>
+				<h:message for="descripcion" />
+			</h:panelGrid>
+			<br /><br />
+			
+			<h:commandButton action="#{libreriaBean.modificarLibro()}"
+				value="#{msg.boton_modificar}" />
+			&nbsp;&nbsp;&nbsp;
+			<h:commandButton action="#{libreriaBean.eliminarLibro()}"
+				value="#{msg.boton_eliminar}" />
+			&nbsp;&nbsp;&nbsp;
+			<h:link value="#{msg.boton_volver}" outcome="index" />
+			
+		</h:form>
+
+	</f:view>
+</h:body>
+
+
+</html>
